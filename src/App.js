@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { AuthProvider } from './context/AuthContext';
 import Home from './pages/Home';
 import ProtectedRoute from './components/ProtectedRoute';
+import Success from './pages/Success';
 
 // User Auth
 import Login from './pages/Login';
@@ -17,11 +18,14 @@ import VerifyError from './pages/VerifyError';
 import EmailVerification from './pages/EmailVerificationPending';
 import CheckEmail from './pages/CheckEmail';
 
+// reset password
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
+
 // AdOwner
 import SelectPlatforms from './pages/SelectPlatforms'
 import UserInfoForm from './pages/UserInfoForm'
 import CampaignReview from './pages/CampaignReview'
-import Dashboard from './pages/Dashboard';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -52,10 +56,14 @@ function App() {
               <Route path="/verify-error" element={<VerifyError />} />
               <Route path="/email-verification" element={<EmailVerification />} />
               <Route path="/check-email" element={<CheckEmail />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
 
               {/* AdOwner */}
               <Route path="/select-platforms" element={<SelectPlatforms />} />
               <Route path="/user-info" element={<UserInfoForm />} />
+
+              <Route path="/campaign-success" element={<Success />} />
 
               <Route path="/review" element={
                 <ProtectedRoute>

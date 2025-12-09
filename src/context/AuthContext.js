@@ -150,7 +150,7 @@ export const AuthProvider = ({ children }) => {
         requestData.returnUrl = returnUrl;
       }
 
-      const response = await axios.post(`${API_URL}/api/auth/register`, requestData);
+      const response = await axios.post(`${API_URL}/api/auth/register-waitlist`, requestData);
 
       return {
         success: true,
