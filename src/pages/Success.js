@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link, useNavigate } from 'react-router-dom';
 import Image from '../img/medium-shot-woman-holding-laptop.jpg'
+import Tick from '../icons/mark.png'
 
 export default function Success() {
   return (
@@ -23,19 +25,22 @@ export default function Success() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-gray-900 mb-6"
         >
-            Your Campaign Setup Is Complete
+          Your Campaign Setup Is Complete
         </motion.h1>
 
         <div className='flex flex-col justify-between items-center gap-4'>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-                You've successfully created your advertising campaign setup. Our team and automated systems
-                will now perform the required platform validation, traffic compatibility checks, and content
-                safety scans across all networks you selected.
-            </p>
+          <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+            You've successfully created your advertising campaign setup. Our team and automated systems
+            will now perform the required platform validation, traffic compatibility checks, and content
+            safety scans across all networks you selected.
+          </p>
 
-            <button className="px-10 py-4 bg-black text-white text-lg rounded-full shadow-lg hover:bg-gray-800 transition-all">
-                Click to check Campaign Dashboard
+          <Link to='/review'>
+            <button className="px-10 py-4 bg-black text-white text-md rounded-full shadow-lg hover:bg-gray-800 transition-all">
+              Click to check Campaign Dashboard
             </button>
+          </Link>
+          
         </div>
       </motion.div>
 
@@ -54,10 +59,22 @@ export default function Success() {
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-gray-900">What's Happening Next?</h2>
           <ul className="space-y-3 text-gray-600 leading-relaxed">
-            <li>✔ Your campaign is being reviewed for category compliance.</li>
-            <li>✔ We’re checking availability across the platforms you selected.</li>
-            <li>✔ Our AI prepares the content optimization suggestions.</li>
-            <li>✔ The system estimates audience match + predicted reach.</li>
+            <li className='flex items-center gap-2'>
+              <img src={Tick} alt='tick' className='w-7 h-7'/>
+              <span>Your campaign is being reviewed for category compliance.</span>
+            </li>
+            <li className='flex items-center gap-2'>
+              <img src={Tick} alt='tick' className='w-7 h-7'/>
+              <span>We’re checking availability across the platforms you selected.</span>
+            </li>
+            <li className='flex items-center gap-2'>
+              <img src={Tick} alt='tick' className='w-7 h-7'/>
+              <span>Our AI prepares the content optimization suggestions.</span>
+            </li>
+            <li className='flex items-center gap-2'>
+              <img src={Tick} alt='tick' className='w-7 h-7'/>
+              <span>The system estimates audience match + predicted reach.</span>
+            </li>
           </ul>
         </div>
       </motion.div>
@@ -99,11 +116,12 @@ export default function Success() {
           every future campaign will run instantly on the platforms you choose.
         </p>
 
-        <button className="px-10 py-4 bg-black text-white text-lg rounded-xl shadow-lg hover:bg-gray-800 transition-all">
-          Go to Campaign Dashboard
-        </button>
+        <Link to='/review'>
+          <button className="px-10 py-4 bg-black text-white text-md rounded-full shadow-lg hover:bg-gray-800 transition-all">
+            Click to check Campaign Dashboard
+          </button>
+        </Link>
       </motion.div>
-
     </div>
   )
 }
