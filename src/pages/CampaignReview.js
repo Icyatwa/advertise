@@ -46,12 +46,13 @@ function Dashboard() {
       { id: 'alliance-media', name: 'Alliance Media' }
     ],
     influencers: [
-      { id: 'inf1', name: 'Bruce Melodie' },
-      { id: 'inf2', name: 'Knowless' },
-      { id: 'inf3', name: 'Uncle Austin' },
-      { id: 'inf4', name: 'Miss Rwanda' },
-      { id: 'inf5', name: 'Charly na Nina' },
-      { id: 'inf6', name: 'Arthur Nkusi' }
+      { id: 'inf1', name: 'Aime Rwanda 250' },
+      { id: 'inf2', name: 'Clapton Kibonke' },
+      { id: 'inf3', name: 'Nishimwe Naomi' },
+      { id: 'inf4', name: 'Solange Nishimwe' },
+      { id: 'inf5', name: 'Ngabo Karegeya' },
+      { id: 'inf6', name: 'Zuba Mutesi' },
+      { id: 'inf7', name: 'The Long Form' }
     ],
   };
 

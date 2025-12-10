@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, Tv, Radio, MapPin, Users, Share2, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import X from '../logos/twitter.png';
 import IG from '../logos/instagram.png';
 import Linked from '../logos/linkedin.png';
@@ -9,9 +10,19 @@ function SelectPlatforms() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const selectedChannels = ['websites', 'tv', 'radio', 'billboards', 'influencers'];
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Get selected channels from navigation state
+  const { selectedChannels } = location.state || {};
 
-const allPlatforms = {
+  useEffect(() => {
+    if (!selectedChannels || selectedChannels.length === 0) {
+      navigate('/');
+    }
+  }, [selectedChannels, navigate]);
+
+  const allPlatforms = {
     websites: [
       { id: 'igihe', 
         name: 'Igihe', 
@@ -202,12 +213,7 @@ const allPlatforms = {
   };
 
   const togglePlatform = (platformId, platformName, category) => {
-    const platformData = {
-      platformId,
-      platformName,
-      category
-    };
-
+    const platformData = { platformId, platformName, category };
     setSelectedPlatforms(prev => {
       const exists = prev.find(p => p.platformId === platformId);
       if (exists) {
@@ -246,7 +252,14 @@ const allPlatforms = {
       alert('Please select at least one platform');
       return;
     }
-    console.log('Selected platforms:', selectedPlatforms);
+    
+    // Navigate to user info form with selected data
+    navigate('/user-info', {
+      state: {
+        selectedChannels,
+        selectedPlatforms
+      }
+    });
   };
 
   return (

@@ -1,4 +1,4 @@
-// UserInfoForm.js - WORKING VERSION
+// UserInfoForm.js
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';

@@ -45,9 +45,19 @@ const Dropdown = () => {
     const isAllSelected = selectedChannels.length === channels.length - 1;
 
     const handleNext = () => {
+        if (selectedChannels.length === 0) {
+            alert('Please select at least one channel');
+            return;
+        }
+        
         // Navigate to select-platforms with selected channels in state
         navigate('/select-platforms', { 
-            state: { selectedChannels } 
+            state: { 
+                selectedChannels: selectedChannels.map(channelId => {
+                    const channel = channels.find(c => c.id === channelId);
+                    return channel ? channel.id : channelId;
+                })
+            } 
         });
     };
 
